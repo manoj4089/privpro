@@ -1,20 +1,28 @@
 package com.wecp.eventmanagementsystem.entity;
 
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "resources") // do not change table name
 public class Resource {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long resourceID ;
+    private Long resourceID;
+    private String name;
+    private String type;
+    private Boolean availability;
 
-   private String name;
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    private Event event;
+    public Event getEvent() {
+        return event;
+    }
 
-   private String type;
-
-     private boolean availability;
+    public void setEvent(Event event) {
+        this.event = event;
+    }
 
     public Resource() {
     }
@@ -57,11 +65,6 @@ public class Resource {
     public void setAvailability(boolean availability) {
         this.availability = availability;
     }
-
-    
-
-    
-     
 
     // implement entity
 }
