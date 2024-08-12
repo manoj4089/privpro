@@ -25,7 +25,7 @@ import java.util.Collection;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter  {
     @Autowired
-    private UserService userService;
+    private UserDetailsService userService;
     @Autowired
     private JwtUtil jwtUtil;
     @Override
