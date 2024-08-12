@@ -1,1 +1,28 @@
-//todo: complete missing codel..
+<div>
+    <form [formGroup]="itemForm" ngSubmit="onSubmit()">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="name" placeholder="name">
+            <div *ngIf="itemForm.get('name')?.hasError('required') && itemForm.get('name')?.touched">should require name field</div>
+        </div>
+        <div>
+        <label for="type">Type</label>
+            <input type="text" id="type" formControlName="type" placeholder="type">
+            <div *ngIf="itemForm.get('type')?.hasError('required') && itemForm.get('type')?.touched">should require type field</div>
+        </div>
+        <div>
+            <label for="availability">Availability</label>
+            <select formControlName="availability">
+                <option value="">Select Availability</option>
+                <option value="available">Available</option>
+                <option value="unavailable">Unavailable</option>
+              </select>
+              <div *ngIf="itemForm.get('availability')?.invalid && (itemForm.get('availability')?.dirty || itemForm.get('availability')?.touched)">
+                should require availability field1
+              </div>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

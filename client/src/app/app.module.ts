@@ -9,7 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpService } from '../services/http.service';
 import { DashbaordComponent } from './dashbaord/dashbaord.component';
-import { CreateEventComponent } from './create-event/create-event.component';
+ import { CreateEventComponent } from './create-event/create-event.component';
 import { AddResourceComponent } from './add-resource/add-resource.component';
 import { ResourceAllocateComponent } from './resource-allocate/resource-allocate.component';
 import { ViewEventsComponent } from './view-events/view-events.component';
