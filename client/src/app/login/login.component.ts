@@ -55,12 +55,13 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     if (this.itemForm.valid) {
+      this.showError = false;
       this.httpService.Login(this.itemForm.value).subscribe(
-        data => {
-
+        (data : any)=> {
           this.authService.setRole(data.role);
-          this.authService.saveToken(data);
-          this.router.navigate(['/dashboard']).then(() => {
+          this.authService.saveToken(data.token);
+          localStorage.setItem('token', data.token);
+          this.router.navigateByUrl('dashboard').then(() => {
             window.location.reload();
           });
         },
@@ -77,6 +78,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.showError = true;
       this.errorMessage = 'Form is not valid.';
+      this.itemForm.markAllAsTouched();
     }
   }
 
